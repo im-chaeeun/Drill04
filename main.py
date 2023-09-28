@@ -34,7 +34,10 @@ dir=0
 while running:
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    character.clip_draw(frame * 85, 315, 85, 68, x, 90)
+    if dir == 0 or dir == 1:
+        character.clip_draw(frame * 85, 315, 85, 68, x, 90)
+    elif dir == -1:
+        character.clip_composite_draw(frame * 85, 315, 85, 68, 0, 'h', x, 90, 85, 65)
     update_canvas()
     handle_events()
     frame = (frame + 1) % 10
