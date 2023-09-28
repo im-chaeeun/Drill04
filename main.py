@@ -39,6 +39,7 @@ running=True
 x=800//2
 y= 90
 frame=0
+frame_up=0
 dir=0
 updown=0
 
@@ -47,21 +48,21 @@ while running:
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     if dir == 1:
          if updown == 1:
-            character.clip_draw(frame * 85, 315, 85, 68, x, y)
+            character.clip_draw(frame_up * 95 + 40, 90, 95, 120, x, y)
          elif updown == -1:
             character.clip_draw(frame * 85, 315, 85, 68, x, y)
          elif updown == 0:
              character.clip_draw(frame * 85, 315, 85, 68, x, y)
     elif dir == -1:
         if updown == 1:
-            character.clip_composite_draw(frame * 85, 315, 85, 68, 0, 'h', x, y, 85, 65)
+            character.clip_composite_draw(frame_up * 95 + 40, 90, 95, 120, 0, 'h', x, y, 95, 120)
         elif updown == -1:
             character.clip_composite_draw(frame * 85, 315, 85, 68, 0, 'h', x, y, 85, 65)
         elif updown == 0:
             character.clip_composite_draw(frame * 85, 315, 85, 68, 0, 'h', x, y, 85, 65)
     elif dir == 0:
         if updown == 1:
-            character.clip_draw(frame * 85, 315, 85, 68, x, y)
+            character.clip_draw(frame_up * 95 + 40, 90, 95, 120, x, y)
         elif updown == -1:
             character.clip_draw(frame * 85, 315, 85, 68, x, y)
         elif updown == 0:
@@ -71,7 +72,9 @@ while running:
     update_canvas()
     handle_events()
     frame = (frame + 1) % 10
+    frame_up = (frame_up + 1) % 8
     x+=dir*5
+    y+=updown*5
     delay(0.05)
 
 close_canvas()
