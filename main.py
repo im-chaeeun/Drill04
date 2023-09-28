@@ -42,28 +42,39 @@ dir, updown = 0, 0
 
 while running:
     clear_canvas()
-    tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
+    tuk_ground.draw(TUK_WIDTH//2 , TUK_HEIGHT//2)
+
+    if x<30:
+        x=30
+    elif x>=765:
+        x=765
+    if y<28:
+        y=28
+    elif y>=575:
+        y=575
+
     if dir == 1:
-         if updown == 1:
-            character.clip_draw(frame_up * 95 + 40, 90, 95, 120, x, y)
-         elif updown == -1:
-            character.clip_draw(frame_down * 165, 210, 165, 100, x, y)
-         elif updown == 0:
-             character.clip_draw(frame * 85, 315, 85, 68, x, y)
+        if updown == 1:
+                character.clip_draw(frame_up * 95 + 40, 90, 95, 120, x, y)
+        elif updown == -1:
+                character.clip_draw(frame_down * 165, 210, 165, 100, x, y)
+        elif updown == 0:
+                 character.clip_draw(frame * 85, 315, 85, 68, x, y)
     elif dir == -1:
         if updown == 1:
-            character.clip_composite_draw(frame_up * 95 + 40, 90, 95, 120, 0, 'h', x, y, 95, 120)
+                character.clip_composite_draw(frame_up * 95 + 40, 90, 95, 120, 0, 'h', x, y, 95, 120)
         elif updown == -1:
-            character.clip_composite_draw(frame_down * 165, 210, 165, 100, 0, 'h', x, y, 165, 100)
+                character.clip_composite_draw(frame_down * 165, 210, 165, 100, 0, 'h', x, y, 165, 100)
         elif updown == 0:
-            character.clip_composite_draw(frame * 85, 315, 85, 68, 0, 'h', x, y, 85, 65)
+                character.clip_composite_draw(frame * 85, 315, 85, 68, 0, 'h', x, y, 85, 65)
     elif dir == 0:
         if updown == 1:
-            character.clip_draw(frame_up * 95 + 40, 90, 95, 120, x, y)
+                character.clip_draw(frame_up * 95 + 40, 90, 95, 120, x, y)
         elif updown == -1:
-            character.clip_draw(frame_down * 165, 210, 165, 100, x, y)
+                character.clip_draw(frame_down * 165, 210, 165, 100, x, y)
         elif updown == 0:
-            character.clip_draw(frame * 85, 315, 85, 68, x, y)
+                character.clip_draw(frame * 85, 315, 85, 68, x, y)
+
 
 
     update_canvas()
