@@ -1,5 +1,7 @@
 from pico2d import*
 
+# 2022182035 임채은
+
 open_canvas()
 
 character=load_image('character_sheet.png')
@@ -74,8 +76,6 @@ while running:
                 character.clip_draw(frame_down * 165, 210, 165, 100, x, y)
         elif updown == 0:
                 character.clip_draw(frame * 85, 315, 85, 68, x, y)
-
-
 
     update_canvas()
     handle_events()
