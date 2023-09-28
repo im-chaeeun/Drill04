@@ -4,7 +4,7 @@ from pico2d import*
 
 open_canvas()
 
-character=load_image('character_sheet.png')
+character=load_image('character_dog_sheet.png')
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 tuk_ground=load_image('TUK_GROUND.png')
 
@@ -37,9 +37,10 @@ def handle_events():
                 updown+=1
 
 
+
 running=True
 x, y = 800//2, 90
-frame, frame_up, frame_down = 0, 0, 0
+frame, frame_up, frame_down, frame_stop = 0, 0, 0, 0
 dir, updown = 0, 0
 
 while running:
@@ -75,13 +76,14 @@ while running:
         elif updown == -1:
                 character.clip_draw(frame_down * 165, 210, 165, 100, x, y)
         elif updown == 0:
-                character.clip_draw(frame * 85, 315, 85, 68, x, y)
+                character.clip_draw(frame_stop * 95, 0, 95, 70, x, y)
 
     update_canvas()
     handle_events()
     frame = (frame + 1) % 10
     frame_up = (frame_up + 1) % 8
     frame_down = (frame_down + 1) % 3
+    frame_stop = (frame_stop +1) % 3
     x+=dir*5
     y+=updown*5
     delay(0.05)
